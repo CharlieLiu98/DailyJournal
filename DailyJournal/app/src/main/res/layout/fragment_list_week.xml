@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListWeek">
+    tools:context=".ListWeekFragment">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -26,7 +26,8 @@
                 android:id="@+id/MondayTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/week_monday" />
+                android:text="@string/week_monday"
+                style="@style/WeekTextStyle"/>
         </TableRow>
 
         <TableRow
@@ -37,7 +38,8 @@
                 android:id="@+id/TuesdayTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/week_tuesday" />
+                android:text="@string/week_tuesday"
+                style="@style/WeekTextStyle"/>
         </TableRow>
 
         <TableRow
@@ -48,7 +50,8 @@
                 android:id="@+id/WednesdayTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/week_wednesday" />
+                android:text="@string/week_wednesday"
+                style="@style/WeekTextStyle"/>
         </TableRow>
 
         <TableRow
@@ -59,7 +62,8 @@
                 android:id="@+id/ThursdayTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/week_thursday" />
+                android:text="@string/week_thursday"
+                style="@style/WeekTextStyle"/>
 
         </TableRow>
 
@@ -71,7 +75,8 @@
                 android:id="@+id/FridayTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/week_friday" />
+                android:text="@string/week_friday"
+                style="@style/WeekTextStyle"/>
         </TableRow>
 
         <TableRow
@@ -82,7 +87,8 @@
                 android:id="@+id/SaturdayTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/week_saturday" />
+                android:text="@string/week_saturday"
+                style="@style/WeekTextStyle"/>
         </TableRow>
 
         <TableRow
@@ -93,7 +99,8 @@
                 android:id="@+id/SundayTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/week_sunday" />
+                android:text="@string/week_sunday"
+                style="@style/WeekTextStyle"/>
         </TableRow>
     </TableLayout>
 

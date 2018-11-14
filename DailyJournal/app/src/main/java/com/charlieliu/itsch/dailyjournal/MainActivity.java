@@ -19,7 +19,7 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ListMonth.OnFragmentInteractionListener, ListWeek.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ListMonthFragment.OnFragmentInteractionListener, ListWeekFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, AddEntryActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity
 
         Fragment fragment = null;
         Class fragmentClass = null;
-        fragmentClass = ListWeek.class;
+        fragmentClass = ListWeekFragment.class;
         try {
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
@@ -109,11 +109,11 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_week) {
             // Handle the week action
 
-            fragmentClass = ListWeek.class;
+            fragmentClass = ListWeekFragment.class;
 
         } else if (id == R.id.nav_month) {
 
-            fragmentClass = ListMonth.class;
+            fragmentClass = ListMonthFragment.class;
 
         } else if (id == R.id.nav_share) {
 

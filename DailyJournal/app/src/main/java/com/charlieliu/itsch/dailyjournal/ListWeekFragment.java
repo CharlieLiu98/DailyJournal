@@ -12,14 +12,14 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ListWeek.OnFragmentInteractionListener} interface
+ * {@link ListWeekFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
  */
-public class ListWeek extends Fragment {
+public class ListWeekFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public ListWeek() {
+    public ListWeekFragment() {
         // Required empty public constructor
     }
 
