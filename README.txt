@@ -5,3 +5,6 @@ liu305@mail.chapman.edu
 CPSC 356
 Final Project 
 
+
+Sources used:
+com.github.prolificinteractive:material-calendarview
