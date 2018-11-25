@@ -19,6 +19,13 @@
     
     <style name="WeekTextStyle">
         <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    
+    <style name="MonthHeaderStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
 </resources>

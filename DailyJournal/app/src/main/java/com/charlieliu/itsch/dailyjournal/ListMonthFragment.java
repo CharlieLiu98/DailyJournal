@@ -4,9 +4,11 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 
 
 /**
@@ -22,6 +24,11 @@ public class ListMonthFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private final String TAG = "ListMonthFragment";
+
+
+    private CalendarView mCalendarView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -57,6 +64,13 @@ public class ListMonthFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+
+            mCalendarView = getView().findViewById(R.id.CalendarView);
+
+
+
+
         }
     }
 
@@ -79,6 +93,10 @@ public class ListMonthFragment extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
+
+
+            Log.v(TAG, "onAttach");
+
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
