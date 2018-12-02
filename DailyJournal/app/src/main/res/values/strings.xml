@@ -19,6 +19,7 @@
 
     <string name="add_entry_prompt">How was your day?</string>
     <string name="notes">Notes</string>
+    <string name="date">Date</string>
 
     <string name="add_entry">Add Entry</string>
     <string name="clear">Clear</string>
