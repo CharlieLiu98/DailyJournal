@@ -7,12 +7,12 @@
         <item
             android:id="@+id/nav_week"
             android:icon="@drawable/ic_menu_week"
-            android:title="Week"
-            android:checked="true"/>
+            android:title="Week" />
         <item
             android:id="@+id/nav_month"
             android:icon="@drawable/ic_menu_month"
-            android:title="Month" />
+            android:title="Month"
+            android:checked="true"/>
     </group>
 
     <item android:title="Communicate">

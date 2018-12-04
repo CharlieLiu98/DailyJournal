@@ -12,10 +12,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
+import java.time.Year;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -24,6 +30,7 @@ public class ListMonthFragment extends Fragment {
 
     private final String TAG = "ListMonthFragment";
 
+    private MaterialCalendarView calendarView;
 
 
 
@@ -46,8 +53,9 @@ public class ListMonthFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
-
+//
+//            TextView tv = getActivity().findViewById(R.id.textView2);
+//            tv.setText("Testing...");
 
 
         }
@@ -58,9 +66,26 @@ public class ListMonthFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         new EventAdder(getActivity()).execute();
+        View myFragmentView = inflater.inflate(R.layout.fragment_list_month, container, false);
+
+        //setting the pointer to the current date
+        calendarView = myFragmentView.findViewById(R.id.CalendarView);
+        CalendarDay cd = CalendarDay.from(
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        calendarView.setDateSelected(cd, true);
+        Log.d(TAG, cd.toString());
+        calendarView.setOnDateChangedListener(new OnDateSelectedListener() {
+            @Override
+            public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
+                Toast.makeText(getContext(), "Working", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_month, container, false);
+        return myFragmentView;
     }
 
 
@@ -70,6 +95,8 @@ public class ListMonthFragment extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
+
+//            calendarView.setCurrentDate(CalendarDay.from(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH), true);
 
 
             Log.v(TAG, "onAttach");
@@ -101,8 +128,10 @@ public class ListMonthFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    interface OnFragmentInteractionListener {
     }
+
+
 
 
 }

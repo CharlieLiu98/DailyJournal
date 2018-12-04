@@ -17,9 +17,11 @@ Sources used:
 	https://stackoverflow.com/questions/14933330/datepicker-how-to-popup-datepicker-when-click-on-edittext
 	https://www.math.uni-hamburg.de/doc/java/tutorial/post1.0/converting/deprecated.html
 	https://blog.sqlizer.io/posts/json-store-data/
+	http://melardev.com/eng/blog/2017/12/21/android-asynctask-without-leaking-context/
 	
 Trouble spots:
 	getting a date picker dialog
+	Adding dotspan to calendar using AsyncTask
 
 TODO:
 	Unit Testing

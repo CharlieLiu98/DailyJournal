@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
 
         Fragment fragment = null;
         Class fragmentClass = null;
-        fragmentClass = ListWeekFragment.class;
+        fragmentClass = ListMonthFragment.class;
         try {
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
@@ -94,8 +94,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+        if (id == R.id.action_credits) {
+            Intent intent = new Intent(MainActivity.this, CreditsActivity.class);
             startActivity(intent);
             return true;
         }
