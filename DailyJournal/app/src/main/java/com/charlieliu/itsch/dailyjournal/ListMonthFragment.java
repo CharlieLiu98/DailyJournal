@@ -30,9 +30,6 @@ public class ListMonthFragment extends Fragment {
 
     private final String TAG = "ListMonthFragment";
 
-    private MaterialCalendarView calendarView;
-
-
 
     private OnFragmentInteractionListener mListener;
 
@@ -69,7 +66,7 @@ public class ListMonthFragment extends Fragment {
         View myFragmentView = inflater.inflate(R.layout.fragment_list_month, container, false);
 
         //setting the pointer to the current date
-        calendarView = myFragmentView.findViewById(R.id.CalendarView);
+        MaterialCalendarView calendarView = myFragmentView.findViewById(R.id.CalendarView);
         CalendarDay cd = CalendarDay.from(
                 Calendar.getInstance().get(Calendar.YEAR),
                 Calendar.getInstance().get(Calendar.MONTH),
