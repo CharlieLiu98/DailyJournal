@@ -1,6 +1,7 @@
 package com.charlieliu.itsch.dailyjournal;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import java.util.Locale;
 public class AddEntryActivity extends AppCompatActivity {
 
     private final String TAG = "AddEntryActivity";
+    private int idx;
 
     private Calendar entryDate = Calendar.getInstance();
     TextView dateTV;
@@ -40,6 +42,12 @@ public class AddEntryActivity extends AppCompatActivity {
         final EditText notesET = findViewById(R.id.notesET);
         final RatingBar ratingBar = findViewById(R.id.ratingBar);
 
+        //Getting things from intent
+        notesET.setText(getIntent().getStringExtra("notes"));
+        ratingBar.setRating(getIntent().getFloatExtra("rating", 0f));
+        idx = getIntent().getIntExtra("idx", -1);
+
+
         clearBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,9 +59,18 @@ public class AddEntryActivity extends AppCompatActivity {
         addEntryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO
-                Entry.EntriesList.add(new Entry(entryDate, ratingBar.getRating(), notesET.getText().toString()));
-                Log.v(TAG, Entry.EntriesList.get(0).toString());
+
+                if (idx != -1)
+                {
+                    Entry.EntriesList.set(idx, new Entry(entryDate, ratingBar.getRating(), notesET.getText().toString()));
+                }
+
+                else {
+                    Entry.EntriesList.add(new Entry(entryDate, ratingBar.getRating(), notesET.getText().toString()));
+                    Log.v(TAG, Entry.EntriesList.get(0).toString());
+                }
+
+                new EventSaver(getApplicationContext()).execute();
                 finish();
             }
         });
@@ -64,7 +81,6 @@ public class AddEntryActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
-                // TODO Auto-generated method stub
                 entryDate.set(Calendar.YEAR, year);
                 entryDate.set(Calendar.MONTH, monthOfYear);
                 entryDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);

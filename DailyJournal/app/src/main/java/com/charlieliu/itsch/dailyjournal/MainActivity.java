@@ -33,6 +33,9 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        new EventLoader(getApplicationContext()).execute();
+
+
         //Floating action button
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -121,10 +124,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_month) {
 
             fragmentClass = ListMonthFragment.class;
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
 
         }
 

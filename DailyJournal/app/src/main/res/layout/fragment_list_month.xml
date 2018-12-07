@@ -8,85 +8,85 @@
 
 
     <!--<TableLayout-->
-        <!--android:id="@+id/tableLayout"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--android:stretchColumns="*"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent">-->
+    <!--android:id="@+id/tableLayout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginEnd="8dp"-->
+    <!--android:layout_marginStart="8dp"-->
+    <!--android:layout_marginTop="8dp"-->
+    <!--android:stretchColumns="*"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent">-->
 
-        <!--<TableRow-->
-            <!--android:id="@+id/MonthHeader"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
+    <!--<TableRow-->
+    <!--android:id="@+id/MonthHeader"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
 
-            <!--<TextView-->
-                <!--android:id="@+id/monday1"-->
-                <!--style="@style/MonthHeaderStyle"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="@string/week_monday" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/monday1"-->
+    <!--style="@style/MonthHeaderStyle"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="@string/week_monday" />-->
 
-            <!--<TextView-->
-                <!--android:id="@+id/tuesday1"-->
-                <!--style="@style/MonthHeaderStyle"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="@string/week_tuesday" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/tuesday1"-->
+    <!--style="@style/MonthHeaderStyle"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="@string/week_tuesday" />-->
 
-            <!--<TextView-->
-                <!--android:id="@+id/wednesday1"-->
-                <!--style="@style/MonthHeaderStyle"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="@string/week_wednesday" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/wednesday1"-->
+    <!--style="@style/MonthHeaderStyle"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="@string/week_wednesday" />-->
 
-            <!--<TextView-->
-                <!--android:id="@+id/thursday1"-->
-                <!--style="@style/MonthHeaderStyle"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="@string/week_thursday" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/thursday1"-->
+    <!--style="@style/MonthHeaderStyle"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="@string/week_thursday" />-->
 
-            <!--<TextView-->
-                <!--android:id="@+id/friday1"-->
-                <!--style="@style/MonthHeaderStyle"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="@string/week_friday" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/friday1"-->
+    <!--style="@style/MonthHeaderStyle"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="@string/week_friday" />-->
 
-            <!--<TextView-->
-                <!--android:id="@+id/saturday1"-->
-                <!--style="@style/MonthHeaderStyle"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="@string/week_saturday" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/saturday1"-->
+    <!--style="@style/MonthHeaderStyle"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="@string/week_saturday" />-->
 
-            <!--<TextView-->
-                <!--android:id="@+id/sunday1"-->
-                <!--style="@style/MonthHeaderStyle"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="1"-->
-                <!--android:text="@string/week_sunday" />-->
+    <!--<TextView-->
+    <!--android:id="@+id/sunday1"-->
+    <!--style="@style/MonthHeaderStyle"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="1"-->
+    <!--android:text="@string/week_sunday" />-->
 
-        <!--</TableRow>-->
+    <!--</TableRow>-->
 
-        <!--<TableRow-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
+    <!--<TableRow-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
 
-        <!--</TableRow>-->
+    <!--</TableRow>-->
 
     <!--</TableLayout>-->
 
@@ -102,5 +102,34 @@
         app:layout_constraintTop_toTopOf="parent"
         app:mcv_selectionColor="@color/colorPrimary"
         app:mcv_showOtherDates="all" />
+
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CalendarView"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TableLayout
+            android:id="@+id/NotesPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:stretchColumns="2">
+
+
+        </TableLayout>
+    </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>

@@ -39,7 +39,6 @@ public class ListWeekFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        new EventAdder(getActivity()).execute();
         View myFragmentView = inflater.inflate(R.layout.fragment_list_week, container, false);
 
         //setting the pointer to the current date
@@ -50,17 +49,23 @@ public class ListWeekFragment extends Fragment {
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
         calendarView.setDateSelected(cd, true);
         Log.d(TAG, cd.toString());
+
+
+        new PreviewNotesAsyncTask(getActivity(), cd).execute();
+
+
         calendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-                Toast.makeText(getContext(), "Working", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "Date chosen: " + date.toString());
+                new PreviewNotesAsyncTask(getActivity(), date).execute();
+
             }
         });
         // Inflate the layout for this fragment
         return myFragmentView;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -84,6 +89,17 @@ public class ListWeekFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+
+
+        new EventAdderAsyncTask(getActivity()).execute();
+        new PreviewNotesAsyncTask(getActivity(), CalendarDay.today()).execute();
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -95,7 +111,6 @@ public class ListWeekFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }

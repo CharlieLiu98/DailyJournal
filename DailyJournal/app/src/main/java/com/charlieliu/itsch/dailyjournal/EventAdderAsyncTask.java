@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class EventAdder extends AsyncTask<Void, Void, List<CalendarDay>>
+public class EventAdderAsyncTask extends AsyncTask<Void, Void, List<CalendarDay>>
 {
 
     private WeakReference<Activity> mActivity;
 
-    EventAdder(Activity activity) {
+    EventAdderAsyncTask(Activity activity) {
         mActivity = new WeakReference<Activity>(activity);
     }
 
@@ -29,7 +29,6 @@ public class EventAdder extends AsyncTask<Void, Void, List<CalendarDay>>
     @Override
     protected List<CalendarDay> doInBackground(@NonNull Void... voids) {
 
-        //TODO: Add events from EntryList to Event Decorator
 
 
         for (int i = 0; i < Entry.EntriesList.size(); ++i)

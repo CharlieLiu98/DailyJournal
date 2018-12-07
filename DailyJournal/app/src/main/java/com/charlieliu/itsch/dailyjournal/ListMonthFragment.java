@@ -1,28 +1,24 @@
 package com.charlieliu.itsch.dailyjournal;
 
+import android.content.ClipData;
 import android.content.Context;
-import android.graphics.Color;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
-import java.time.Year;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 
 public class ListMonthFragment extends Fragment {
@@ -38,7 +34,6 @@ public class ListMonthFragment extends Fragment {
     }
 
 
-    // TODO: Rename and change types and number of parameters
     public static ListMonthFragment newInstance() {
         ListMonthFragment fragment = new ListMonthFragment();
         Bundle args = new Bundle();
@@ -55,6 +50,9 @@ public class ListMonthFragment extends Fragment {
 //            tv.setText("Testing...");
 
 
+
+
+
         }
     }
 
@@ -62,7 +60,6 @@ public class ListMonthFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        new EventAdder(getActivity()).execute();
         View myFragmentView = inflater.inflate(R.layout.fragment_list_month, container, false);
 
         //setting the pointer to the current date
@@ -76,7 +73,10 @@ public class ListMonthFragment extends Fragment {
         calendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-                Toast.makeText(getContext(), "Working", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "Date chosen: " + date.toString());
+                new PreviewNotesAsyncTask(getActivity(), date).execute();
+
+
 
             }
         });
@@ -85,6 +85,16 @@ public class ListMonthFragment extends Fragment {
         return myFragmentView;
     }
 
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+
+
+        new EventAdderAsyncTask(getActivity()).execute();
+        new PreviewNotesAsyncTask(getActivity(), CalendarDay.today()).execute();
+
+    }
 
 
     @Override
@@ -98,7 +108,6 @@ public class ListMonthFragment extends Fragment {
 
             Log.v(TAG, "onAttach");
 
-            new EventLoader().execute();
 
 
 

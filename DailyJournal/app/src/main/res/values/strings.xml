@@ -28,32 +28,31 @@
     <!-- TODO: Remove or change this placeholder text -->
 
     <string name="credits">
-        Daily_Journal&#xD;
-        Charlie Liu&#xD;
-        2274468
-        liu305@mail.chapman.edu
-        CPSC 356
-        Final Project
-
-        Implements:
-        Fragments
-        Navigation Drawer
-        Material Calendar view
-        AsyncTask
-        Dialog
-
-        Sources used:
-            com.github.prolificinteractive:material-calendarview
-            https://stackoverflow.com/questions/14933330/datepicker-how-to-popup-datepicker-when-click-on-edittext
-            https://www.math.uni-hamburg.de/doc/java/tutorial/post1.0/converting/deprecated.html
-            https://blog.sqlizer.io/posts/json-store-data/
-            http://melardev.com/eng/blog/2017/12/21/android-asynctask-without-leaking-context/
-
-        Trouble spots:
-            getting a date picker dialog
-            Adding dotspan to calendar using AsyncTask
-
-        TODO:
-            Unit Testing
+        Daily_Journal\n
+        Charlie Liu\n
+        2274468\n
+        liu305@mail.chapman.edu\n
+        CPSC 356\n
+        Final Project\n
+\n
+        Implements:\n
+        Fragments\n
+        Navigation Drawer\n
+        Material Calendar view\n
+        AsyncTask\n
+        Dialog\n
+\n
+        Sources used:\n
+            com.github.prolificinteractive:material-calendarview\n
+            https://stackoverflow.com/questions/14933330/datepicker-how-to-popup-datepicker-when-click-on-edittext\n
+            https://www.math.uni-hamburg.de/doc/java/tutorial/post1.0/converting/deprecated.html\n
+            https://blog.sqlizer.io/posts/json-store-data/\n
+            http://melardev.com/eng/blog/2017/12/21/android-asynctask-without-leaking-context/\n
+        	https://prolificinteractive.github.io/material-calendarview/allclasses-noframe.html\n
+\n
+        Trouble spots:\n
+            getting a date picker dialog\n
+            Adding dotspan to calendar using AsyncTask\n
+\n
     </string>
 </resources>
