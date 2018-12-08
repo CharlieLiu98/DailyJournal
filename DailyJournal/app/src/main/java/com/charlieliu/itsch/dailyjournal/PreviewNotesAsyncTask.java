@@ -86,6 +86,9 @@ public class PreviewNotesAsyncTask extends AsyncTask <Void, Void, ArrayList<Entr
             note.setText(str);
             note.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
             note.setTextSize(TypedValue.COMPLEX_UNIT_SP,24);
+//            note.setSingleLine(false);
+//            note.setHorizontallyScrolling(false);
+//            note.setMinLines(2);
 
 
             TableRow tr = new TableRow(mActivity.get().getBaseContext());

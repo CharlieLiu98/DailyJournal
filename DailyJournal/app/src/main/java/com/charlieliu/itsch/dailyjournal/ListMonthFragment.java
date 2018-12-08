@@ -76,7 +76,7 @@ public class ListMonthFragment extends Fragment {
                 Log.d(TAG, "Date chosen: " + date.toString());
                 new PreviewNotesAsyncTask(getActivity(), date).execute();
 
-
+                AddEntryActivity.currDay = date.getCalendar();
 
             }
         });
@@ -93,6 +93,7 @@ public class ListMonthFragment extends Fragment {
 
         new EventAdderAsyncTask(getActivity()).execute();
         new PreviewNotesAsyncTask(getActivity(), CalendarDay.today()).execute();
+        AddEntryActivity.currDay = Calendar.getInstance();
 
     }
 

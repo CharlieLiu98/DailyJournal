@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/nav_views"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_week"
             android:icon="@drawable/ic_menu_week"
@@ -13,6 +15,15 @@
             android:icon="@drawable/ic_menu_month"
             android:title="Month"
             android:checked="true"/>
+    </group>
+
+    <group
+        android:id="@+id/nav_settings">
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/title_activity_settings" />
+
     </group>
 
 </menu>

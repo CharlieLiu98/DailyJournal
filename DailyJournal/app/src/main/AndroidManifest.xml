@@ -25,6 +25,12 @@
         <activity
             android:name=".CreditsActivity"
             android:parentActivityName=".MainActivity" />
+
+        <receiver android:name=".AlarmReceiver" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

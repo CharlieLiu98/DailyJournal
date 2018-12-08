@@ -59,6 +59,8 @@ public class ListWeekFragment extends Fragment {
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
                 Log.d(TAG, "Date chosen: " + date.toString());
                 new PreviewNotesAsyncTask(getActivity(), date).execute();
+                AddEntryActivity.currDay = date.getCalendar();
+
 
             }
         });

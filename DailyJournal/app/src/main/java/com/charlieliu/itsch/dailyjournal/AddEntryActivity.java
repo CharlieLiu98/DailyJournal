@@ -18,6 +18,8 @@ import java.util.Locale;
 
 public class AddEntryActivity extends AppCompatActivity {
 
+    public static Calendar currDay = Calendar.getInstance();
+
     private final String TAG = "AddEntryActivity";
     private int idx;
 

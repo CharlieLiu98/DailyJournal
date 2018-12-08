@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AddEntryActivity.class);
-                intent.putExtra("cal", Calendar.getInstance());
+                intent.putExtra("cal", AddEntryActivity.currDay);
                 startActivity(intent);
             }
         });
@@ -125,20 +125,27 @@ public class MainActivity extends AppCompatActivity
 
             fragmentClass = ListMonthFragment.class;
 
+        } else if (id == R.id.settings) {
+            Log.d(TAG, "Settings clicked");
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
         }
 
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (fragmentClass != null)
+        {
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // Insert the fragment by replacing any existing fragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.MainLayout, fragment).commit();
         }
-
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.MainLayout, fragment).commit();
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

@@ -11,6 +11,10 @@ Navigation Drawer
 Material Calendar view
 AsyncTask
 Dialog
+Alarm Manager
+Broadcast Intent
+Pending Intent
+Notifications
 
 Sources used:
 	com.github.prolificinteractive:material-calendarview
@@ -24,8 +28,9 @@ Trouble spots:
 	getting a date picker dialog
 	Adding dotspan to calendar using AsyncTask
 	Saving and loading from file
+	Using broadcast Intent to set a daily reminder
 	
 TODO:
-	Daily reminder
+	Cardview settings
 
 

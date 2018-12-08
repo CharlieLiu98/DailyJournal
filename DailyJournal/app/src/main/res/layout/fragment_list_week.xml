@@ -116,7 +116,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CalendarView">
+        app:layout_constraintTop_toBottomOf="@+id/cardView3">
 
         <TableLayout
             android:id="@+id/NotesPreview"
@@ -126,25 +126,39 @@
             android:layout_marginStart="8dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
+            android:shrinkColumns="2"
             android:stretchColumns="2">
 
 
         </TableLayout>
     </ScrollView>
 
-    <com.prolificinteractive.materialcalendarview.MaterialCalendarView xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/CalendarView"
-        android:layout_width="match_parent"
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:mcv_calendarMode="week"
-        app:mcv_selectionColor="@color/colorPrimary"
-        app:mcv_showOtherDates="all" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            android:id="@+id/CalendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:mcv_calendarMode="week"
+            app:mcv_selectionColor="@color/colorPrimary"
+            app:mcv_showOtherDates="all" />
+    </android.support.v7.widget.CardView>
 
 </android.support.constraint.ConstraintLayout>
 
