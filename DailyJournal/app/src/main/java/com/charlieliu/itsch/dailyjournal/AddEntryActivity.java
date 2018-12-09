@@ -2,6 +2,9 @@ package com.charlieliu.itsch.dailyjournal;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +18,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.Objects;
 
 public class AddEntryActivity extends AppCompatActivity {
 
@@ -31,6 +35,22 @@ public class AddEntryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_entry);
+
+
+        //theme
+        try {
+            if (!SettingsActivity.themeIsLight) {
+                Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(AddEntryActivity.this, R.color.darkPrimary)));
+                findViewById(R.id.MainLayout).setBackgroundColor(ContextCompat.getColor(AddEntryActivity.this, R.color.darkPrimaryDark));
+
+
+
+            }
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, e.toString());
+        }
 
         Button addEntryBtn = findViewById(R.id.addEntryBtn);
         Button clearBtn = findViewById(R.id.clearBtn);
@@ -49,6 +69,22 @@ public class AddEntryActivity extends AppCompatActivity {
         ratingBar.setRating(getIntent().getFloatExtra("rating", 0f));
         idx = getIntent().getIntExtra("idx", -1);
 
+
+        //theme
+        if(!SettingsActivity.themeIsLight)
+        {
+            TextView titleText = findViewById(R.id.textView);
+            titleText.setTextColor(Color.WHITE);
+            ratingBar.setBackgroundColor(Color.DKGRAY);
+            dateTV.setTextColor(Color.WHITE);
+            notesET.setTextColor(Color.WHITE);
+            notesET.setHintTextColor(Color.GRAY);
+            notesET.setBackgroundColor(Color.DKGRAY);
+            addEntryBtn.setBackgroundColor(Color.DKGRAY);
+            addEntryBtn.setTextColor(Color.WHITE);
+            clearBtn.setBackgroundColor(Color.DKGRAY);
+            clearBtn.setTextColor(Color.WHITE);
+        }
 
         clearBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -4,10 +4,12 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -25,6 +27,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private final String TAG = "SettingsActivity";
 
+    public static boolean themeIsLight = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +35,75 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         CardView themeColor = findViewById(R.id.themeColor);
+        final ImageView themeColorImage = findViewById(R.id.themeColorImage);
+
+
+
+        final String prefNameTheme = "theme";
+        final SharedPreferences themePreferences = getSharedPreferences(prefNameTheme, Context.MODE_PRIVATE);
+
+        SettingsActivity.themeIsLight = themePreferences.getBoolean(prefNameTheme, true);
+
+
+        if (!SettingsActivity.themeIsLight)
+        {
+            themeColorImage.setImageResource(R.color.darkPrimary);
+        }
+
+
         themeColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //TODO
 
 
+
+
+                String message = "";
+                if (SettingsActivity.themeIsLight)
+                {
+                    message = "Change to dark theme?";
+
+                }
+                else
+                {
+                    message = "Change to light theme?";
+                }
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+                builder.setMessage(message);
+                builder .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                SharedPreferences.Editor editor = themePreferences.edit();
+
+                                if (SettingsActivity.themeIsLight)
+                                {
+                                    editor.putBoolean(prefNameTheme, false);
+                                    themeColorImage.setImageResource(R.color.darkPrimary);
+
+                                }
+                                else
+                                {
+                                    editor.putBoolean(prefNameTheme, true);
+                                    themeColorImage.setImageResource(R.color.colorPrimary);
+
+                                }
+
+                                editor.apply();
+
+
+
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alertdialog = builder.create();
+                alertdialog.show();
 
             }
         });
@@ -48,8 +114,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         String prefName = "DailyJournal";
 
-        SharedPreferences sharedpreferences = getSharedPreferences(prefName, Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor = sharedpreferences.edit();
+        final SharedPreferences sharedpreferences = getSharedPreferences(prefName, Context.MODE_PRIVATE);
 
         reminderTime.setText( sharedpreferences.getString("alarmText", "None set"));
 
@@ -94,6 +159,8 @@ public class SettingsActivity extends AppCompatActivity {
 
                             String alarmText = String.format("Alarm set at %tI:%tM %tp daily", calendar, calendar, calendar);
                             reminderTime.setText(alarmText);
+                            SharedPreferences.Editor editor = sharedpreferences.edit();
+
                             editor.putString("alarmText", alarmText);
                             editor.apply();
                         }
@@ -130,6 +197,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                 String temp = "None set";
                 reminderTime.setText(temp);
+                final SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.putString("alarmText", temp);
                 editor.apply();
 

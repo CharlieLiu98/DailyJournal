@@ -28,8 +28,13 @@ public class EventLoader extends AsyncTask<Object, Void, Boolean>
         input = FileIO.readFromFile(mContext.get());
 
 
-        Gson gson = new Gson();
-        Entry.EntriesList = gson.fromJson(input, new TypeToken<ArrayList<Entry>>(){}.getType());
+        if (input != "") {
+            Gson gson = new Gson();
+            Entry.EntriesList = gson.fromJson(input, new TypeToken<ArrayList<Entry>>() {
+            }.getType());
+
+        }
         return true;
+
     }
 }

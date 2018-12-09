@@ -28,4 +28,13 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="AppThemeRatingBar" parent="Theme.AppCompat">
+        <item name="ratingBarStyle">@style/RatingBar</item>
+    </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorAccent">#6200ea</item>
+        <item name="colorControlNormal">@color/colorPrimary</item>
+    </style>
+
 </resources>

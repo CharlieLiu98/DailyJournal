@@ -1,10 +1,13 @@
 package com.charlieliu.itsch.dailyjournal;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,8 +67,30 @@ public class ListWeekFragment extends Fragment {
 
             }
         });
+
+
+        //theme color
+
+        try {
+            if (!SettingsActivity.themeIsLight) {
+
+                CardView cv = myFragmentView.findViewById(R.id.cardView3);
+                cv.setCardBackgroundColor(ContextCompat.getColor(getActivity(), R.color.darkPrimary));
+//                cv.getRootView().setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.darkPrimaryDark));
+                calendarView.setDateTextAppearance(R.style.TextAppearance_AppCompat_Inverse);
+                calendarView.setHeaderTextAppearance(R.style.TextAppearance_AppCompat_Inverse);
+                calendarView.setWeekDayTextAppearance(R.style.TextAppearance_AppCompat_Inverse);
+
+            }
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, e.toString());
+        }
+
         // Inflate the layout for this fragment
         return myFragmentView;
+
     }
 
     public void onButtonPressed(Uri uri) {

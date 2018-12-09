@@ -20,9 +20,14 @@
     <group
         android:id="@+id/nav_settings">
         <item
+            android:id="@+id/all_entries"
+            android:icon="@drawable/ic_all_entries"
+            android:title="@string/title_activity_all_entries" />
+        <item
             android:id="@+id/settings"
             android:icon="@drawable/ic_settings"
             android:title="@string/title_activity_settings" />
+
 
     </group>
 

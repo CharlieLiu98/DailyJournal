@@ -2,12 +2,17 @@ package com.charlieliu.itsch.dailyjournal;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +24,14 @@ import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 
 public class ListMonthFragment extends Fragment {
 
 
     private final String TAG = "ListMonthFragment";
+    private MaterialCalendarView calendarView = null;
 
 
     private OnFragmentInteractionListener mListener;
@@ -63,7 +70,7 @@ public class ListMonthFragment extends Fragment {
         View myFragmentView = inflater.inflate(R.layout.fragment_list_month, container, false);
 
         //setting the pointer to the current date
-        MaterialCalendarView calendarView = myFragmentView.findViewById(R.id.CalendarView);
+        calendarView = myFragmentView.findViewById(R.id.CalendarView);
         CalendarDay cd = CalendarDay.from(
                 Calendar.getInstance().get(Calendar.YEAR),
                 Calendar.getInstance().get(Calendar.MONTH),
@@ -81,6 +88,26 @@ public class ListMonthFragment extends Fragment {
             }
         });
 
+
+        //theme color
+
+        try {
+            if (!SettingsActivity.themeIsLight) {
+
+                CardView cv = myFragmentView.findViewById(R.id.cardView);
+                cv.setCardBackgroundColor(ContextCompat.getColor(getActivity(), R.color.darkPrimary));
+//                cv.getRootView().setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.darkPrimaryDark));
+                calendarView.setDateTextAppearance(R.style.TextAppearance_AppCompat_Inverse);
+                calendarView.setHeaderTextAppearance(R.style.TextAppearance_AppCompat_Inverse);
+                calendarView.setWeekDayTextAppearance(R.style.TextAppearance_AppCompat_Inverse);
+
+            }
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, e.toString());
+        }
+
         // Inflate the layout for this fragment
         return myFragmentView;
     }
@@ -91,9 +118,11 @@ public class ListMonthFragment extends Fragment {
         super.onResume();
 
 
+
         new EventAdderAsyncTask(getActivity()).execute();
-        new PreviewNotesAsyncTask(getActivity(), CalendarDay.today()).execute();
+        new PreviewNotesAsyncTask(getActivity(), CalendarDay.from(AddEntryActivity.currDay)).execute();
         AddEntryActivity.currDay = Calendar.getInstance();
+        Log.d(TAG, "onResume");
 
     }
 
