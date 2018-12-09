@@ -29,6 +29,7 @@ Trouble spots:
 	Adding dotspan to calendar using AsyncTask
 	Saving and loading from file
 	Using broadcast Intent to set a daily reminder
+	Dark theme
 	
 TODO:
 	Cardview settings
