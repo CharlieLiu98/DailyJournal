@@ -53,6 +53,8 @@ public class ListWeekFragment extends Fragment {
         calendarView.setDateSelected(cd, true);
         Log.d(TAG, cd.toString());
 
+        AddEntryActivity.currDay = cd.getCalendar();
+
 
         new PreviewNotesAsyncTask(getActivity(), cd).execute();
 
@@ -64,6 +66,7 @@ public class ListWeekFragment extends Fragment {
                 new PreviewNotesAsyncTask(getActivity(), date).execute();
                 AddEntryActivity.currDay = date.getCalendar();
 
+                AddEntryActivity.currDay = date.getCalendar();
 
             }
         });
@@ -123,7 +126,7 @@ public class ListWeekFragment extends Fragment {
 
 
         new EventAdderAsyncTask(getActivity()).execute();
-        new PreviewNotesAsyncTask(getActivity(), CalendarDay.today()).execute();
+        new PreviewNotesAsyncTask(getActivity(), CalendarDay.from(AddEntryActivity.currDay)).execute();
 
     }
 

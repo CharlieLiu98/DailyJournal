@@ -76,6 +76,9 @@ public class ListMonthFragment extends Fragment {
                 Calendar.getInstance().get(Calendar.MONTH),
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
         calendarView.setDateSelected(cd, true);
+
+        AddEntryActivity.currDay = cd.getCalendar();
+
         Log.d(TAG, cd.toString());
         calendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
@@ -121,7 +124,6 @@ public class ListMonthFragment extends Fragment {
 
         new EventAdderAsyncTask(getActivity()).execute();
         new PreviewNotesAsyncTask(getActivity(), CalendarDay.from(AddEntryActivity.currDay)).execute();
-        AddEntryActivity.currDay = Calendar.getInstance();
         Log.d(TAG, "onResume");
 
     }
