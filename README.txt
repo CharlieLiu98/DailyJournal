@@ -24,6 +24,7 @@ Sources used:
 	https://blog.sqlizer.io/posts/json-store-data/
 	http://melardev.com/eng/blog/2017/12/21/android-asynctask-without-leaking-context/
 	https://prolificinteractive.github.io/material-calendarview/allclasses-noframe.html
+	https://developer.android.com/docs/
 	
 Trouble spots:
 	getting a date picker dialog
