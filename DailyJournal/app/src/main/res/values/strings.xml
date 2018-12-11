@@ -29,31 +29,42 @@
     <!-- TODO: Remove or change this placeholder text -->
 
     <string name="credits">
-        Daily_Journal\n
-        Charlie Liu\n
-        2274468\n
-        liu305@mail.chapman.edu\n
-        CPSC 356\n
-        Final Project\n
+\nDaily_Journal
+\nCharlie Liu
+\n2274468
+\nliu305@mail.chapman.edu
+\nCPSC 356
+\nFinal Project
 \n
-        Implements:\n
-        Fragments\n
-        Navigation Drawer\n
-        Material Calendar view\n
-        AsyncTask\n
-        Dialog\n
+\nImplements:
+\nFragments
+\nNavigation Drawer
+\nMaterial Calendar view
+\nAsyncTask
+\nDialog
+\nAlarm Manager
+\nBroadcast Intent
+\nPending Intent
+\nNotifications
+\nPreferences
 \n
-        Sources used:\n
-            com.github.prolificinteractive:material-calendarview\n
-            https://stackoverflow.com/questions/14933330/datepicker-how-to-popup-datepicker-when-click-on-edittext\n
-            https://www.math.uni-hamburg.de/doc/java/tutorial/post1.0/converting/deprecated.html\n
-            https://blog.sqlizer.io/posts/json-store-data/\n
-            http://melardev.com/eng/blog/2017/12/21/android-asynctask-without-leaking-context/\n
-        	https://prolificinteractive.github.io/material-calendarview/allclasses-noframe.html\n
+\nSources used:
+\n	https://github.com/prolificinteractive/material-calendarview
+\n	https://stackoverflow.com/questions/14933330/datepicker-how-to-popup-datepicker-when-click-on-edittext
+\n	https://www.math.uni-hamburg.de/doc/java/tutorial/post1.0/converting/deprecated.html
+\n	https://blog.sqlizer.io/posts/json-store-data/
+\n	http://melardev.com/eng/blog/2017/12/21/android-asynctask-without-leaking-context/
+\n	https://prolificinteractive.github.io/material-calendarview/allclasses-noframe.html
 \n
-        Trouble spots:\n
-            getting a date picker dialog\n
-            Adding dotspan to calendar using AsyncTask\n
-\n
+\nTrouble spots:
+\n	getting a date picker dialog
+\n	Adding dotspan to calendar using AsyncTask
+\n	Saving and loading from file
+\n	Using broadcast Intent to set a daily reminder
+\n	Dark theme
+
+
+
+
     </string>
 </resources>

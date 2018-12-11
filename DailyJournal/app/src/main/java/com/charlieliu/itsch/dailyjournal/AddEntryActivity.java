@@ -36,6 +36,8 @@ public class AddEntryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_entry);
 
+        final EditText notesET = findViewById(R.id.notesET);
+        final RatingBar ratingBar = findViewById(R.id.ratingBar);
 
         //theme
         try {
@@ -56,18 +58,45 @@ public class AddEntryActivity extends AppCompatActivity {
         Button clearBtn = findViewById(R.id.clearBtn);
 
 
+
+
         dateTV = findViewById(R.id.dateTV);
 
         entryDate = (Calendar) getIntent().getSerializableExtra("cal");
         updateLabel();
 
-        final EditText notesET = findViewById(R.id.notesET);
-        final RatingBar ratingBar = findViewById(R.id.ratingBar);
+
 
         //Getting things from intent
         notesET.setText(getIntent().getStringExtra("notes"));
         ratingBar.setRating(getIntent().getFloatExtra("rating", 0f));
         idx = getIntent().getIntExtra("idx", -1);
+
+
+        if (idx != -1)
+        {
+            addEntryBtn.setText("Save");
+            clearBtn.setText("Delete");
+            clearBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Entry.EntriesList.remove(idx);
+                    Log.d(TAG, "Deleted entry at index: " + idx);
+                    new EventSaver(getApplicationContext()).execute();
+                    finish();
+                }
+            });
+        }
+        else
+        {
+            clearBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ratingBar.setRating(0);
+                    notesET.setText("");
+                }
+            });
+        }
 
 
         //theme
@@ -86,13 +115,7 @@ public class AddEntryActivity extends AppCompatActivity {
             clearBtn.setTextColor(Color.WHITE);
         }
 
-        clearBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ratingBar.setRating(0);
-                notesET.setText("");
-            }
-        });
+
 
         addEntryBtn.setOnClickListener(new View.OnClickListener() {
             @Override

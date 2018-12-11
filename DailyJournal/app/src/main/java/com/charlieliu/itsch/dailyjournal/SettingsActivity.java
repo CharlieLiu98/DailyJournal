@@ -164,7 +164,7 @@ public class SettingsActivity extends AppCompatActivity {
                             editor.putString("alarmText", alarmText);
                             editor.apply();
 
-                            Toast.makeText(SettingsActivity.this, "Alarm set", Toast.LENGTH_SHORT).show();`
+                            Toast.makeText(SettingsActivity.this, "Alarm set", Toast.LENGTH_SHORT).show();
                         }
                         else
                         {

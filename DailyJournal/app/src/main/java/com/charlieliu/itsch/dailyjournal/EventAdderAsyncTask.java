@@ -25,6 +25,12 @@ public class EventAdderAsyncTask extends AsyncTask<Void, Void, List<CalendarDay>
     private final ArrayList<CalendarDay> dates = new ArrayList<>();
 
 
+    @Override
+    protected void onPreExecute()
+    {
+
+    }
+
 
     @Override
     protected List<CalendarDay> doInBackground(@NonNull Void... voids) {
@@ -42,6 +48,9 @@ public class EventAdderAsyncTask extends AsyncTask<Void, Void, List<CalendarDay>
 
         // May produce an error due to WeakReference but has not happened yet
         MaterialCalendarView calendarView = mActivity.get().findViewById(R.id.CalendarView);
+        calendarView.removeDecorators();
+
         calendarView.addDecorator(new EventDecorator(Color.RED, calendarDays));
+        calendarView.toString();
     }
 }

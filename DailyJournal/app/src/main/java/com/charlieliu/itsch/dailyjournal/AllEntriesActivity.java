@@ -16,7 +16,7 @@ public class AllEntriesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_entries);
 
-        new PreviewNotesAsyncTask(AllEntriesActivity.this).execute();
+
 
 
         //theme
@@ -32,4 +32,12 @@ public class AllEntriesActivity extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        new PreviewNotesAsyncTask(AllEntriesActivity.this).execute();
+    }
+
 }

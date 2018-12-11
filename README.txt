@@ -15,6 +15,7 @@ Alarm Manager
 Broadcast Intent
 Pending Intent
 Notifications
+Preferences
 
 Sources used:
 	https://github.com/prolificinteractive/material-calendarview
@@ -30,8 +31,3 @@ Trouble spots:
 	Saving and loading from file
 	Using broadcast Intent to set a daily reminder
 	Dark theme
-	
-TODO:
-	Cardview settings
-
-

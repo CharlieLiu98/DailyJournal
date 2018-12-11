@@ -12,9 +12,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.Toast;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
@@ -33,6 +35,8 @@ public class ListWeekFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
+    MaterialCalendarView calendarView = null;
+
     public ListWeekFragment() {
         // Required empty public constructor
     }
@@ -45,7 +49,7 @@ public class ListWeekFragment extends Fragment {
         View myFragmentView = inflater.inflate(R.layout.fragment_list_week, container, false);
 
         //setting the pointer to the current date
-        MaterialCalendarView calendarView = myFragmentView.findViewById(R.id.CalendarView);
+        calendarView = myFragmentView.findViewById(R.id.CalendarView);
         CalendarDay cd = CalendarDay.from(
                 Calendar.getInstance().get(Calendar.YEAR),
                 Calendar.getInstance().get(Calendar.MONTH),
@@ -124,9 +128,13 @@ public class ListWeekFragment extends Fragment {
     {
         super.onResume();
 
+        Log.d(TAG, "onResume");
+
+
 
         new EventAdderAsyncTask(getActivity()).execute();
         new PreviewNotesAsyncTask(getActivity(), CalendarDay.from(AddEntryActivity.currDay)).execute();
+
 
     }
 

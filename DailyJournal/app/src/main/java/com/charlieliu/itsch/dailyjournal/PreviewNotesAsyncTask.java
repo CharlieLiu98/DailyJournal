@@ -90,7 +90,7 @@ public class PreviewNotesAsyncTask extends AsyncTask <Void, Void, ArrayList<Entr
 
         for (int i = 0; i < param.size(); ++i)
         {
-            Entry e = param.get(i);
+            final Entry e = param.get(i);
 
             TextView numStars = new TextView(mActivity.get().getBaseContext());
             ImageView star = new ImageView(mActivity.get().getBaseContext());
@@ -135,7 +135,7 @@ public class PreviewNotesAsyncTask extends AsyncTask <Void, Void, ArrayList<Entr
                     Intent intent = new Intent(mActivity.get().getApplicationContext(), AddEntryActivity.class);
                     intent.putExtra("rating", f);
                     intent.putExtra("notes", str);
-                    intent.putExtra("idx", idx);
+                    intent.putExtra("idx", Entry.EntriesList.indexOf(e));
                     intent.putExtra("cal", cal);
 
                     mActivity.get().startActivity(intent);

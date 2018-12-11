@@ -120,10 +120,12 @@ public class ListMonthFragment extends Fragment {
     {
         super.onResume();
 
+        Log.d(TAG, "onResume");
 
-
+//        calendarView.invalidateDecorators();
         new EventAdderAsyncTask(getActivity()).execute();
         new PreviewNotesAsyncTask(getActivity(), CalendarDay.from(AddEntryActivity.currDay)).execute();
+        calendarView.toString();
         Log.d(TAG, "onResume");
 
     }

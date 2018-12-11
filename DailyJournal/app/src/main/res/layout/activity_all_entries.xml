@@ -27,6 +27,8 @@
             android:paddingRight="16dp"
             android:shrinkColumns="2"
             android:stretchColumns="2"
+            android:divider="?android:attr/dividerHorizontal"
+            android:showDividers="middle"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="436dp">
 
